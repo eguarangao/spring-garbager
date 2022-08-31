@@ -21,6 +21,7 @@ public class PersonContainer {
     @ManyToOne
     @JoinColumn(name = "personContainerIdPerson")
     Person personContainerIdPerson;
+
     @ManyToOne
     @JoinColumn(name = "personContainerIdContainer")
     Container personContainerIdContainer;

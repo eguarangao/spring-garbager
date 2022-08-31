@@ -3,6 +3,7 @@ package com.example.springgarbager.controller;
 import com.example.springgarbager.model.Container;
 import com.example.springgarbager.services.ContainerService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -45,6 +46,34 @@ public class ContainerController {
         try
         {
             return ResponseEntity.ok().body(containerService.save(entity));
+        }
+        catch (Exception e)
+        {
+            return ResponseEntity.badRequest().build();
+        }
+    }
+
+    //ELIMINAR
+    @DeleteMapping(value =  "{id}")
+    public ResponseEntity<Boolean> delete (@PathVariable int id)
+    {
+        try
+        {
+            return ResponseEntity.status(HttpStatus.NO_CONTENT).body(containerService.delete(id));
+        }
+        catch (Exception e)
+        {
+            return ResponseEntity.badRequest().build();
+        }
+    }
+
+    //ACTUALIZAR
+    @PutMapping(value =  "{id}")
+    private ResponseEntity<Container>update(@PathVariable int id, @RequestBody Container entity)
+    {
+        try
+        {
+            return ResponseEntity.ok().body(containerService.update(id,entity));
         }
         catch (Exception e)
         {

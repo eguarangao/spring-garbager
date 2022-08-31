@@ -43,9 +43,9 @@ public class ContainerService {
     public Container update(Integer id, Container entity) throws Exception {
         try {
             Optional<Container> entityOptional = containerRepository.findById(id);
-            Container carer = entityOptional.get();
-            carer = containerRepository.save(entity);
-            return carer;
+            Container container = entityOptional.get();
+            container = containerRepository.save(entity);
+            return container;
         } catch (Exception e) {
             throw new Exception(e.getMessage());
         }

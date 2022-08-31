@@ -32,4 +32,37 @@ public class PersonService {
             throw new Exception(e.getMessage());
         }
     }
+    //Este metodo permite guardar
+    public Person save(Person entity) throws Exception {
+        try {
+            entity = personRepository.save(entity);
+            return entity;
+        } catch (Exception e) {
+            throw new Exception(e.getMessage());
+        }
+    }
+    //Este metodo permite Actualizar mediante ID
+    public Person update(Integer id, Person entity) throws Exception {
+        try {
+            Optional<Person> entityOptional = personRepository.findById(id);
+            Person person = entityOptional.get();
+            person = personRepository.save(entity);
+            return person;
+        } catch (Exception e) {
+            throw new Exception(e.getMessage());
+        }
+    }
+
+    public boolean delete(Integer id) throws Exception {
+        try {
+            if (personRepository.existsById(id)) {
+                personRepository.deleteById(id);
+                return true;
+            } else {
+                throw new Exception();
+            }
+        } catch (Exception e) {
+            throw new Exception(e.getMessage());
+        }
+    }
 }

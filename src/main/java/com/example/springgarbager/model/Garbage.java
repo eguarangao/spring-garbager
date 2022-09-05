@@ -23,6 +23,6 @@ public class Garbage {
     String description;
 
     @ManyToOne
-    @JoinColumn(name = "garbageIdContainer")
+    @JoinColumn(name = "garbage_id_container")
     Container garbageIdContainer;
 }

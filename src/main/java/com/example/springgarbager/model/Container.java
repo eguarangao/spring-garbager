@@ -19,7 +19,7 @@ public class Container {
     @Column(name="id",unique = true, nullable = false)
     private int id;
 
-    @Column(name = "nameContainer",length = 45)
+    @Column(name = "name_container",length = 45)
     private String nameContainer;
 
     @Column(name = "address",length = 45)

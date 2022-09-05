@@ -19,13 +19,13 @@ public class Person {
     @Column(name="id",unique = true, nullable = false)
     private int id;
 
-    @Column(name = "firstName",length = 45)
+    @Column(name = "first_name",length = 45)
     String firstName;
 
-    @Column(name = "lastName",length = 45)
+    @Column(name = "last_name",length = 45)
     String lastName;
 
-    @Column(name = "userName",length = 45)
+    @Column(name = "email",length = 45)
     String userName;
 
     @Column(name = "password",length = 45)

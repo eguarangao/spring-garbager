@@ -6,6 +6,7 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import javax.persistence.*;
+import java.time.LocalDateTime;
 
 @Getter
 @Setter
@@ -19,6 +20,11 @@ public class Person {
     @Column(name="id",unique = true, nullable = false)
     private int id;
 
+    @Column(name = "state")
+    private Boolean state = true;
+    @Column(name = "registration_date")
+    private LocalDateTime registrationDate;
+
     @Column(name = "first_name",length = 45)
     String firstName;
 
@@ -26,8 +32,18 @@ public class Person {
     String lastName;
 
     @Column(name = "email",length = 45)
-    String userName;
+    String email;
 
     @Column(name = "password",length = 45)
     String password;
+
+    @Column(name="verification_code",length = 8, updatable = false)
+    private String verificationCode;
+
+    @Column(name = "url_image")
+    private String urlImage;
+    @PrePersist
+    public void PrePersist() {
+        registrationDate = LocalDateTime.now();
+    }
 }

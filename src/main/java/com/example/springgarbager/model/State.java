@@ -22,14 +22,18 @@ public class State {
     private int id;
     @Column(name = "destance")
     Double destance;
+    @Column(name = "destance_cm")
+    Double destancecm;
+    @Column(name = "destance_porce")
+    int destanceporce;
 
     @Temporal(TemporalType.DATE)
     @DateTimeFormat(iso = DateTimeFormat.ISO.DATE)
     @Column(name = "date")
     private Date date;
 
-    @OneToOne
+    @ManyToOne
     @JoinColumn(name = "stateIdGarbage")
-    Garbage stateIdGarbage;
+    ContainerGarbage stateIdGarbage;
 
 }

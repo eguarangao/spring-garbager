@@ -36,6 +36,7 @@ public class PersonController {
         try
         {
             return ResponseEntity.ok().body(personService.findById(id));
+
         }
         catch (Exception e)
         {

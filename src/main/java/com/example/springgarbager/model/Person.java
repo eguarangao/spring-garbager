@@ -21,7 +21,7 @@ public class Person {
     private int id;
 
     @Column(name = "state")
-    private int state = 1;
+    private int state ;
     @Column(name = "registration_date")
     private LocalDateTime registrationDate;
 

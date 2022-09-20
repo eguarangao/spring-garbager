@@ -63,6 +63,7 @@ public class PersonService {
         try {
             String codeRandom = RandomString.make(8);
             entity.setVerificationCode(codeRandom.toUpperCase());
+            entity.setState(0);
             entity.setPassword(entity.getPassword());
             entity = personRepository.save(entity);
             email(entity);

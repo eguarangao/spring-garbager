@@ -61,12 +61,7 @@ public class PersonService {
     //Este metodo permite guardar
     public Person save(Person entity) throws Exception {
         try {
-            String codeRandom = RandomString.make(8);
-            entity.setVerificationCode(codeRandom.toUpperCase());
-            entity.setState(false);
-            entity.setPassword(entity.getPassword());
             entity = personRepository.save(entity);
-            email(entity);
             return entity;
         } catch (Exception e) {
             throw new Exception(e.getMessage());

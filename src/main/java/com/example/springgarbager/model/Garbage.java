@@ -22,7 +22,5 @@ public class Garbage {
     @Column(name = "description",length = 45)
     String description;
 
-    @ManyToOne
-    @JoinColumn(name = "garbage_id_container")
-    Container garbageIdContainer;
+
 }
